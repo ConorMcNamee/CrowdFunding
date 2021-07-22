@@ -1,6 +1,10 @@
 import React, {Component} from "react";
+import {Switch, Route} from "react-router-dom";
 import CrowdFunding from "./contracts/CrowdFunding.json";
+
 import ProjectList from "./components/ProjectList.js";
+import AddProject from "./components/AddProject.js";
+
 import Web3 from "web3";
 
 class App extends Component{
@@ -53,9 +57,15 @@ class App extends Component{
     console.log(this.state)
     return(
       <div>
-        <ProjectList props={this.state.projects}>
+        <Switch>
+          <Route path='/list'>
+            <ProjectList />
+          </Route>
 
-        </ProjectList>
+          <Route path='/add-project'>
+            <AddProject />
+          </Route>
+        </Switch>
       </div>
     )
   }

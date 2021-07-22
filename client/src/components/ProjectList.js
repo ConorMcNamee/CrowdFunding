@@ -11,8 +11,7 @@ class ProjectList extends Component{
     render(){
         return(
             <div className="ProjectList">
-                <h1>Add A Project</h1>
-                <input></input>
+                <h1>Project List</h1>
             </div>
         )
     }
