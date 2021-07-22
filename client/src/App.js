@@ -57,6 +57,9 @@ class App extends Component{
     console.log(this.state)
     return(
       <div>
+        <Navbar>
+        </Navbar>
+
         <Switch>
           <Route path='/list'>
             <ProjectList />
