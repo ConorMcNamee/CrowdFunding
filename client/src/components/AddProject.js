@@ -5,15 +5,22 @@ class AddProject extends Component{
 
     constructor(props){
         super(props)
-        console.log(props)
-        this.state = {
-            title: '',
-            deadline: '',
-        }
+
+        this.state = props;
+    }
+
+    onChangeTitle = (e) => {
+        this.setState({title: e.target.value })
+        console.log(e.target.value);
+    }
+
+    onChangeDeadline = (e) => {
+        this.setState({deadline: e.target.value })
+        console.log(e.target.value);
     }
 
     startProject = (_title, _deadline) => {
-        console.log(_title, _deadline)
+        console.log("hello");
     }
 
     render(){
@@ -21,10 +28,21 @@ class AddProject extends Component{
             <div className="AddProject">
                 <h1>Add A Project</h1>
                 <label>Project Title: </label>
-                <input></input>
+                <input 
+                    className="add-title"
+                    onChange={this.onChangeTitle}
+                />
 
                 <label>Project Deadline: </label>
-                <input></input>
+                <input 
+                    className="add-deadline"
+                    onChange={this,this.onChangeDeadline}
+                    type="number"
+                />
+
+                <button onSubmit={this.startProject}>
+                    Submit
+                </button>
             </div>
         )
     }

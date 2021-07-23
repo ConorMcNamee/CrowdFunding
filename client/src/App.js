@@ -4,6 +4,7 @@ import CrowdFunding from "./contracts/CrowdFunding.json";
 
 import ProjectList from "./components/ProjectList.js";
 import AddProject from "./components/AddProject.js";
+import Navbar from "./components/Navbar.js";
 
 import Web3 from "web3";
 
@@ -35,8 +36,6 @@ class App extends Component{
     const result = await contract.methods.getAllProjects().call()
     const balance = await web3.eth.getBalance(accounts[0])
 
-
-
     this.setState({projects: result})
     this.setState({account: accounts[0]})
     this.setState({contract: contract})
@@ -62,11 +61,11 @@ class App extends Component{
 
         <Switch>
           <Route path='/list'>
-            <ProjectList />
+            <ProjectList state={this.state}/>
           </Route>
 
           <Route path='/add-project'>
-            <AddProject />
+            <AddProject contract={this.state.contract} />
           </Route>
         </Switch>
       </div>
