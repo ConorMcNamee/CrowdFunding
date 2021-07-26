@@ -4,45 +4,58 @@ import "./css/AddProject.css";
 class AddProject extends Component{
 
     constructor(props){
-        super(props)
+        super(props);
+        this.state = {
+            title: '',
+            deadline: '',
+            contract: null,
+            account: null
+        }       
 
-        this.state = props;
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChangeTitle = (e) => {
-        this.setState({title: e.target.value })
-        console.log(e.target.value);
+
+    handleTitle = (e) => {
+        this.setState({title: e.target.value})
     }
 
-    onChangeDeadline = (e) => {
-        this.setState({deadline: e.target.value })
-        console.log(e.target.value);
+    handleDeadline = (e) => {
+        this.setState({deadline: e.target.value})
     }
 
-    startProject = (_title, _deadline) => {
-        console.log("hello");
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this._startProject(this.state.title, this.state.deadline)
+    }
+
+    _startProject = (title, deadline) =>{
+        alert(title + ", " + deadline)
     }
 
     render(){
         return(
             <div className="AddProject">
                 <h1>Add A Project</h1>
-                <label>Project Title: </label>
-                <input 
-                    className="add-title"
-                    onChange={this.onChangeTitle}
-                />
+                <form onSubmit={this.handleSubmit}>
+                    <label>Project Title: </label>
+                    <input 
+                        className="add-title"
+                        onChange={this.handleTitle}
+                    />
 
-                <label>Project Deadline: </label>
-                <input 
-                    className="add-deadline"
-                    onChange={this,this.onChangeDeadline}
-                    type="number"
-                />
+                    <label>Project Deadline: </label>
+                    <input 
+                        className="add-deadline"
+                        onChange={this.handleDeadline}
+                        type="number"
+                    />
 
-                <button onSubmit={this.startProject}>
-                    Submit
-                </button>
+                    <button type="submit" value="Submit">
+                        Submit
+                    </button>
+
+                </form>
             </div>
         )
     }

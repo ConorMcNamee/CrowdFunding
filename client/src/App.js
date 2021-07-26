@@ -42,18 +42,7 @@ class App extends Component{
     this.setState({balance: balance})
   }
 
-  startProject = (title, deadline) => {
-    if(this.state.contract){
-      console.log(this.state.contract)
-      this.state.contract.methods.startProject(title, deadline).send({
-        from: this.state.account,
-        gas: 6721975
-      })
-    }
-  }
-
   render(){
-    console.log(this.state)
     return(
       <div>
         <Navbar>
@@ -61,11 +50,11 @@ class App extends Component{
 
         <Switch>
           <Route path='/list'>
-            <ProjectList state={this.state}/>
+            <ProjectList projects={this.state.projects}/>
           </Route>
 
           <Route path='/add-project'>
-            <AddProject contract={this.state.contract} />
+            <AddProject  contract={this.state.contract} account={this.state.account} />
           </Route>
         </Switch>
       </div>

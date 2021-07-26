@@ -6,12 +6,7 @@ class ProjectList extends Component{
     constructor(props){
         super(props)
         this.state = {
-            loading: props.state.loading,
-            account: props.state.account,
-            balance: props.state.balance,
-            contract: props.state.contract,
-            projects: props.state.projects
-      
+            projects: this.props.projects
         }
     }
 
