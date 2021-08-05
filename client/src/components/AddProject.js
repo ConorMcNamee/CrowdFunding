@@ -30,7 +30,11 @@ class AddProject extends Component{
     }
 
     _startProject = (title, deadline) =>{
-        alert(title + ", " + deadline)
+        console.log(this.props.account)
+        this.props.contract.methods.startProject(title, deadline).send({
+            from: this.props.account,
+            gas: 6721975
+        })
     }
 
     render(){

@@ -5,16 +5,23 @@ class ProjectList extends Component{
 
     constructor(props){
         super(props)
-        this.state = {
-            projects: this.props.projects
-        }
     }
 
     render(){
-        console.log(this.state);
+        console.log(this.props.projects);
         return(
-            <div className="ProjectList">
+            <div className="ProjectList-container">
                 <h1>Project List</h1>
+                {
+                    this.props.projects.map((project) => {
+                        return(
+                            <div className="project-list">
+                                <p className="projectName">{project.projectName},</p>
+                                <p className="projectDeadline">{project.deadline}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }

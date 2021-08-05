@@ -50,7 +50,7 @@ class App extends Component{
 
         <Switch>
           <Route path='/list'>
-            <ProjectList projects={this.state.projects}/>
+            <ProjectList projects={this.state.projects} contract={this.state.contract}/>
           </Route>
 
           <Route path='/add-project'>

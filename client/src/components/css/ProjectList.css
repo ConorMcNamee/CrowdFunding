@@ -1,0 +1,15 @@
+.ProjectList-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.project-list p{
+    font-size: 25px;
+    padding: 1.4em;
+}
